@@ -1,4 +1,4 @@
-length = 5 # 학생 수
+length = 5
 # 동적으로 리스트 생성
 scores = list(range(0, length))
 
