@@ -10,15 +10,15 @@ dict = {
 
 for i in range(0, n):
     x, y = map(int, input().split())
-    if (x > 0) and (y > 0):
+    if (x > 0) and (y > 0): # 1사분면
         dict["Q1"] += 1
-    elif (x < 0) and (y > 0):
+    elif (x < 0) and (y > 0): # 2사분면
         dict["Q2"] += 1
-    elif (x < 0) and (y < 0):
+    elif (x < 0) and (y < 0): # 3사분면
         dict["Q3"] += 1
-    elif (x > 0) and (y < 0):
+    elif (x > 0) and (y < 0): # 4사분면
         dict["Q4"] += 1
-    else:
+    else: # 축
         dict["AXIS"] += 1
         
 print("Q1: %d" % dict["Q1"])
