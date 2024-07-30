@@ -6,10 +6,10 @@ for i in range(0, n):
     # c: 광고 비용
     r, e, c = map(int, input().split())
     # 광고를 해야 하는 경우
-    if (r > (e - c)):
+    if (r < (e - c)):
         print("advertise")
     # 광고를 하지 않아야 하는 경우
-    elif (r < (e - c)):
+    elif (r > (e - c)):
         print("do not advertise")
     # 광고를 해도 수익이 차이가 없는 경우
     else:
