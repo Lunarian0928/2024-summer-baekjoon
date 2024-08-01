@@ -1,25 +1,17 @@
 import math
 
 # 방 번호에 포함된 각 숫자의 개수
-# 인덱스 0번은 1의 개수
-arr = [0] * 9
+arr = [0] * 10
 
-# 방 번호
-n = int(input())
-n = str(n)
+# 방 번호 입력
+n = input()
 
+# 각 숫자의 개수를 센다
 for ch in n:
-    arr[ord(ch) - ord('1')] += 1
+    arr[int(ch)] += 1
 
-# 가장 많이 들어있는 숫자를 찾음
-max_index = 0
-for i in range(1, len(arr)):
-    if (arr[max_index] < arr[i]):
-        max_index = i
+# 6과 9는 뒤집어서 사용할 수 있으므로 합쳐서 평균을 구함
+six_nine_count = arr[6] + arr[9]
+arr[6] = arr[9] = math.ceil(six_nine_count / 2)
 
-# 만약 가장 많이 들어있는 숫자가 6 혹은 9일 경우
-if (max_index == 5) or (max_index == 8):
-    # 6이랑 9는 뒤집어서 이용할 수 있음을 반영
-    print(math.ceil((arr[5] + arr[8]) / 2))
-else:
-    print(arr[max_index])
+print(max(arr))
