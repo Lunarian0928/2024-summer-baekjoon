@@ -52,12 +52,14 @@ for _ in range(t):
     board = [[0] * l for _ in range(l)] 
     visited = [[0] * l for _ in range(l)]
 
-    start_x, start_y = map(int, input().split())
-    end_x, end_y = map(int, input().split())
+    start_x, start_y = map(int, input().split()) # 시작점
+    end_x, end_y = map(int, input().split()) # 도착점
 
+    # 나이트가 이동할 수 있는 경로
     dx = [-2, -2, -1, -1, 1, 1, 2, 2] 
     dy = [-1, 1, -2, 2, -2, 2, -1, 1]
 
+    # 나이트가 움직여야 하는 횟수
     arr.append(bfs(start_x, start_y, end_x, end_y, board, l, dx, dy))
 
 for ans in arr:
