@@ -1,30 +1,44 @@
 import math
 n = int(input()) # 수열의 크기
 
-seq = []
+positive = []
+negative = []
+zero = []
 for _ in range(n):
-    seq.append(int(input()))
-
-seq.sort(key=lambda x: math.fabs(x), reverse=True)
+    num = int(input())
+    if (num > 0):
+        positive.append(num)
+    elif (num < 0): 
+        negative.append(num)
+    else:
+        zero.append(num)
+        
+positive.sort(reverse=True)
+negative.sort()
 
 ans = 0
-i = 0
-
-while (i < n):
-    
-    if (i + 1 < n):
-        value = seq[i] * seq[i + 1]
-        if (value > 0) and (not seq[i] == seq[i + 1] == 1):
-            ans += value
-            i += 2
-        elif (value == 0) and ((seq[i] < 0) or (seq[i + 1] < 0)):
-            ans += value
-            i += 2
-        else:
-            ans += seq[i]
-            i += 1
+while len(positive) > 0:
+    if (len(positive) >= 2) and (positive[0] * positive[1] != 1):
+        ans += positive[0] * positive[1]
+        positive = positive[2::]
     else:
-        ans += seq[i]
-        i += 1
-    print(f'i: {i}, ans: {ans}')
+        ans += positive[0]
+        positive = positive[1::]
+
+while len(negative) > 0:
+    if (len(negative) >= 2):
+        ans += negative[0] * negative[1]
+        negative = negative[2::]
+    else:
+        if (len(zero) > 0):
+            negative.pop()
+            zero.pop()
+        else:
+            ans += negative[0]
+            negative = negative[1::]
+
 print(ans)
+            
+    
+        
+    
