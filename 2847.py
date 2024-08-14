@@ -10,13 +10,12 @@ high_score = score[-1]
 for level in range(n-2, -1, -1):
     # print(f'score[{level}]: {score[level]}')
     # print(f'high_score: {high_score}')
-    if (score[level] >= high_score):
+    if (score[level] >= score[level+1]):
         while True:
             score[level] -= 1
             ans += 1
-            if (score[level] < high_score):
+            if (score[level] < score[level+1]):
                 break
-    high_score -= 1
 
-print(score)
+# print(score)
 print(ans)
