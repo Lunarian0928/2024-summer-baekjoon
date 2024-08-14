@@ -1,44 +1,45 @@
-import math
-n = int(input()) # 수열의 크기
+n = int(input())
 
-positive = []
-negative = []
-zero = []
+pos = []
+neg = []
+zero_cnt = 0
+one_cnt = 0
+
 for _ in range(n):
     num = int(input())
-    if (num > 0):
-        positive.append(num)
-    elif (num < 0): 
-        negative.append(num)
+    if num == 0:
+        zero_cnt += 1
+    elif num == 1:
+        one_cnt += 1
+    elif num > 0:
+        pos.append(num)
     else:
-        zero.append(num)
-        
-positive.sort(reverse=True)
-negative.sort()
+        neg.append(num)
+
+# 양수는 내림차순, 음수는 오름차순 정렬
+pos.sort(reverse=True)
+neg.sort()
 
 ans = 0
-while len(positive) > 0:
-    if (len(positive) >= 2) and (positive[0] * positive[1] != 1):
-        ans += positive[0] * positive[1]
-        positive = positive[2::]
-    else:
-        ans += positive[0]
-        positive = positive[1::]
 
-while len(negative) > 0:
-    if (len(negative) >= 2):
-        ans += negative[0] * negative[1]
-        negative = negative[2::]
-    else:
-        if (len(zero) > 0):
-            negative.pop()
-            zero.pop()
-        else:
-            ans += negative[0]
-            negative = negative[1::]
+# 양수 리스트 처리
+while len(pos) > 1:
+    ans += pos.pop(0) * pos.pop(0)
+
+# 양수 하나가 남아있으면 더해준다.
+if len(pos) == 1:
+    ans += pos.pop()
+
+# 음수 리스트 처리
+while len(neg) > 1:
+    ans += neg.pop(0) * neg.pop(0)
+
+# 음수 하나가 남아있고 0이 없다면 남은 음수를 더해준다.
+if len(neg) == 1:
+    if zero_cnt == 0:
+        ans += neg.pop()
+
+# 1의 개수를 더해준다.
+ans += one_cnt
 
 print(ans)
-            
-    
-        
-    
