@@ -27,6 +27,7 @@ set2.sort()
 diff_set = []
 for i in range(n1):
     target = set1[i]
+    # set1의 요소가 set2에 없는 경우에만 추가
     if (binary_search(target)):
         diff_set.append(target)
 
