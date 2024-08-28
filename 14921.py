@@ -25,9 +25,3 @@ arr = list(map(int, input().split()))
 arr.sort()
 
 print(binary_search(arr))
-           
-n = int(input())
-arr = list(map(int, input().split()))
-arr.sort()
-
-print(binary_search(arr))
