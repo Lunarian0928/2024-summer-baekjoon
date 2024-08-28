@@ -1,5 +1,13 @@
-n = int(input())
-a = list(map(int, input().split()))
+import sys
+input = sys.stdin.read
+
+data = input().split()
+index = 0
+
+n = int(data[index])
+index += 1
+
+a = list(map(int, data[index:index+n]))
 a.sort()
 
 total_cnt = 0
