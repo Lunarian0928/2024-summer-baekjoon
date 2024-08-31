@@ -31,4 +31,4 @@ while (start <= end):
         # 휴게소를 설치할 수 있는 간격을 늘리는 방향으로 탐색한다.
         start = mid + 1
 
-print(mid)
+print(start)
