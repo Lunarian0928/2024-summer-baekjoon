@@ -3,7 +3,6 @@ n, s = map(int, input().split())
 
 # 수열
 arr = list(map(int, input().split()))
-arr.sort()
 
 start = 0
 total = 0
