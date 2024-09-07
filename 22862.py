@@ -4,8 +4,8 @@ n, k = map(int, input().split())
 s = list(map(int, input().split()))
 
 start = 0
-even_len = 0
-max_even_len = 0
+even_len = 0 # 부분 수열의 길이
+max_even_len = 0 # 최대 부분 수열의 길이
 removed_cnt = 0
 
 for end in range(n):
