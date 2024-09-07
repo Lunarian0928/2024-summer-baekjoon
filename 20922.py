@@ -16,7 +16,7 @@ for end in range(n):
     dictionary[arr[end]] += 1 # 원소의 개수를 업데이트
     cnt += 1
     
-    # 특정 원소으 개수가 k개를 넘어갔을 때
+    # 특정 원소의 개수가 k개를 넘어갔을 때
     while (dictionary[arr[end]] > k):    
         dictionary[arr[start]] -= 1 # 슬라이딩 윈도우를 축소
         cnt -= 1
