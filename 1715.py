@@ -9,7 +9,6 @@ for _ in range(n):
     
 compairson_cnt = 0
 
-
 while len(min_heap) >= 2:
     first = heapq.heappop(min_heap)
     second = heapq.heappop(min_heap)
