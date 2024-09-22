@@ -17,6 +17,7 @@ def bfs(v):
     while queue:
         student_no, depth = queue.popleft()
         for i in graph[student_no]:
+            # 친구의 친구까지만 탐색해야 하므로, 깊이를 2로 제한
             if (depth <= 2) and (not visited[i]):
                 queue.append((i, depth + 1))
                 visited[i] = True
